@@ -3,7 +3,7 @@ jobs:
   build-test:
     docker:
       # specify the version you desire here
-      - image: circleci/node:12
+      - image: circleci/node:14
 
     steps:
       - checkout
@@ -15,8 +15,10 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: curl -o- -L https://yarnpkg.com/install.sh | bash
-      - run: yarn install
+      - node/install-packages:
+          pkg-manager: npm
+
+      - run: npm install
 
       - save_cache:
           paths:
@@ -24,8 +26,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn test
-      - run: yarn build
+      - run: npm test
+      - run: npm build
 
 workflows:
   node-tests:

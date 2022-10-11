@@ -15,9 +15,6 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - node/install-packages:
-          pkg-manager: npm
-
       - run: npm install
 
       - save_cache:
@@ -26,8 +23,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm test
-      - run: npm build
+      - run: npm run test
+      - run: npm run build
 
 workflows:
   node-tests:

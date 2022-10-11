@@ -1,5 +1,8 @@
-import axios from "axios";
-
 export const sendData = (kcal: number) => () => {
-  axios.post(`.netlify/functions/fauna`, { kcal: kcal });
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ kcal: kcal }),
+  };
+  fetch(`.netlify/functions/fauna`, requestOptions);
 };

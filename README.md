@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was originally created by [Sebastien Lubineau](https://www.linkedin.com/in/sebastien-lubineau/) : [https://github.com/sebastien-lb/japcalculator](https://github.com/sebastien-lb/japcalculator)
 
 ## Available Scripts
 
